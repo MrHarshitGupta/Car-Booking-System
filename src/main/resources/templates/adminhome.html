@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html th="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body> 	
+<section>
+<h1>Welcome Admin</h1>
+<div class="container p-5">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card">
+					<div class="card-header text-center fs-4">Travel details</div>
+					<div class="card-body">
+						<div class="card-body">
+                    <h4 class="card-title">Cars</h4>
+                    <p class="card-text">Manage all cars here.</p>
+                    <a href="#" th:href="@{/admin/addcar}" class="card-link btn btn-primary">Manage</a>
+
+                </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+</body>
+</html>

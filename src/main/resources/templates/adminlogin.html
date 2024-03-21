@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html th="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Cab-Booking-Log-in</</title>
+</head>
+<body>
+<section>
+<div class="container p-5">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card">
+					<div class="card-header text-center fs-4"> Admin Login Page</div>
+					<div class="card-body">
+						<h4 class="text-center f-5 p-3" th:text="${error}" style="color:red;"></h4>
+						<form th:action="@{/adminlogging}" method="post" >
+							<div class="mb-3">
+							  	<label>Enter Admin Email</label>
+							  	<input type="email" name="email" class="form-control" required>
+							</div>
+							<div class="mb-3">
+							  	<label>Enter Password</label>
+							  	<input type="password" name="password" class="form-control" required>
+							</div>
+							<button class="btn btn-primary col-md-12">Login</button>
+						</form>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

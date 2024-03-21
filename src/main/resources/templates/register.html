@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html th="en" xmlns:th="http://www.thymeLeaf.org"
+	th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container p-3">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center fs-4">Register Page</div>
+						<h4 class="text-center f-5 p-3" th:text="${msg}"
+							style="color: red"></h4>
+
+						<h4 class="text-center f-5 p-3" th:text="${msgs}"
+							style="color: green"></h4>
+
+
+						<div class="card-body">
+
+							<form action="register" method="post">
+								<div class="mb-3">
+									<label>Enter Full Name</label> <input type="text"
+										name="fullname" class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter Email</label> <input type="email" name="email"
+										class="form-control" required>
+								</div>
+
+								<div class="mb-3">
+									<label>Choose Date Of Birth</label> <input type="date"
+										name="dob" class="form-control" required>
+								</div>
+
+								<div class="mb-3">
+									<label>Gender</label>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="gender"
+											id="inlineRadiol" value="male"> <label
+											class="form-check-Label" for="inlineRadio1">Male</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="gender"
+											id="inlineRadio2" value="female"> <label
+											class="form-check-Label" for="inlineRadio2">Female</label>
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label>Enter Address</label> <input type="text" name="address"
+										class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter Mobile Number</label> <input type="text"
+										name="mobile" class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter Password</label> <input type="password"
+										name="password" class="form-control" required>
+								</div>
+								<button class="btn btn-primary col-md-12">Register</button>
+
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

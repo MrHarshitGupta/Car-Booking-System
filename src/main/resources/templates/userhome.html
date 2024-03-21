@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html th="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body> 	
+<section>
+<h2 th:text="${username}">Welcome</h2>
+<div class="container p-5">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card">
+					<div class="card-header text-center fs-4">Travel details</div>
+					<div class="card-body">
+						<form th:action="@{/selectcar}" method="post" >
+							<div class="mb-3">
+							  	<label>Enter Pick Up Address</label>
+							  	<input type="text" name="pick_up_point" class="form-control" required>
+							</div>
+							<div class="mb-3">
+							  	<label>Enter Drop location</label>
+							  	<input type="text" name="destination" class="form-control" required>
+							</div>
+							<button class="btn btn-primary col-md-12">Next >></button>
+						</form>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+</body>
+</html>

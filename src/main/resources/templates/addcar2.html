@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html th="en" xmlns:th="http://www.thymeLeaf.org"
+	th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container p-3">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center fs-4">Add a new Product</div>
+						<div class="card-body">
+
+							<form action="register" method="post">
+								<div class="mb-3">
+									<label>Car Name</label> <input type="text"
+										name="fullname" class="form-control" required>
+								</div>
+								
+								<div class="mb-3">
+									<label>Price per km</label> <input type="text" name="Price Per Km"
+										class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label for="category">Select Category</label> <select
+										class="form-control" id="category"
+										name="category">
+										<option th:each="category :${categories}"
+											th:value="${category.id}" th:text="${category.name}">
+									</select>
+								</div>
+
+								<button class="btn btn-primary col-md-12">Register</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
