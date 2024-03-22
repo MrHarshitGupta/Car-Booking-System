@@ -17,21 +17,10 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	AdminRepo adminRepo;
 	@Override
-	public String login(String email, String password) {
-		List <User> users=userRepo.findAll();
-		List<Admin> admins =adminRepo.findAll();
-		for(User us :users) {
-			if(us.getEmail().equals(email) && us.getPassword().equals(password)) {
-				return "user";
-			}
-		}
-		for(Admin us :admins) {
-			if(us.getEmail().equals(email) && us.getPassword().equals(password)) {
-				return "admin";
-			}
-		}
+	public boolean login(String email, String password) {
+		User user = userRepo.findByEmail(email);
+		return user.getPassword().equals(password);
 		
-		return "InvalidUser";
 	}
 	public String getUsername(String email) {
 		List <User> users=userRepo.findAll();
