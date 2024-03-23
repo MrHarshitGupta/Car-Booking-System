@@ -1,85 +1,101 @@
 package com.project.cbs.entity;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+// Entity annotation indicates that this class represents a database entity
 @Entity
+// Table annotation specifies the name of the database table to which this entity is mapped
 @Table(name= "User")
 public class User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	@Column(name = "Name  ")
-	private String fullName;
-	private String gender;
-	private String dob;
-	private String address;
-	private String email;
-	private String password;
+    // Id annotation specifies the primary key of the entity
+    @Id
+    // GeneratedValue annotation indicates that the primary key value will be automatically generated
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id; // Unique identifier for the user
 
-	public int getId() {
-		return id;
-	}
+    // Column annotation specifies the mapping of the property to the column in the database table
+    @Column(name = "Name  ")
+    private String fullName; // Full name of the user
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    private String gender; // Gender of the user
+    private String dob; // Date of birth of the user
+    private String address; // Address of the user
+    private String email; // Email address of the user
+    private String password; // Password of the user
 
-	public String getFullname() {
-		return fullName;
-	}
+    // Getter and setter methods for id
+    public int getId() {
+        return id;
+    }
 
-	public void setFullname(String fullname) {
-		this.fullName = fullname;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getGender() {
-		return gender;
-	}
+    // Getter and setter methods for fullName
+    public String getFullname() {
+        return fullName;
+    }
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+    public void setFullname(String fullname) {
+        this.fullName = fullname;
+    }
 
-	public String getDob() {
-		return dob;
-	}
+    // Getter and setter methods for gender
+    public String getGender() {
+        return gender;
+    }
 
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    // Getter and setter methods for dob
+    public String getDob() {
+        return dob;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    // Getter and setter methods for address
+    public String getAddress() {
+        return address;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    // Getter and setter methods for email
+    public String getEmail() {
+        return email;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", fullname=" + fullName + ", gender=" + gender + ", dob=" + dob + ", address="
-				+ address + ", email=" + email + ", password=" + password + "]";
-	}
+    // Getter and setter methods for password
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    // Override toString method to provide a string representation of the object
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", fullname=" + fullName + ", gender=" + gender + ", dob=" + dob + ", address="
+                + address + ", email=" + email + ", password=" + password + "]";
+    }
 }

@@ -4,42 +4,50 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.project.cbs.entity.Car;
 import com.project.cbs.entity.CarCategory;
-import com.project.cbs.entity.Driver;
 import com.project.cbs.repository.CarCategoryRepo;
 import com.project.cbs.repository.CarRepo;
-import com.project.cbs.repository.DriverRepository;
 import com.project.cbs.service.AdminService;
+
 @Service
 public class AdminServiceImpl implements AdminService {
-	@Autowired
-	CarRepo carRepo;
-	@Autowired
-	CarCategoryRepo catRepo;
-	@Autowired 
-	DriverRepository driverRepo;
-	@Override
-	public void addCar(Car car) {
-		carRepo.save(car);
-		
-	}
 
-	@Override
-	public List<CarCategory> getCategory() {
-		return catRepo.findAll();
-	}
+    @Autowired
+    CarRepo carRepo;
 
-	@Override
-	public void addCarCat(CarCategory carCat) {
-		catRepo.save(carCat);
-		
-	}
+    @Autowired
+    CarCategoryRepo catRepo;
+	
+    // Method to add a new car
+    @Override
+    public void addCar(Car car) {
+        carRepo.save(car);
+    }
 
-	@Override
-	public void addDriver(Driver driver) {
-		driverRepo.save(driver);
-		
-	}
+    // Method to get all car categories
+    @Override
+    public List<CarCategory> getCategory() {
+        return catRepo.findAll();
+    }
+
+    // Method to add a new car category
+    @Override
+    public void addCarCat(CarCategory carCat) {
+        catRepo.save(carCat);
+    }
+
+    // Method to get all cars
+    @Override
+    public List<Car> getAllCars() {
+        return carRepo.findAll();
+    }
+
+    // Method to delete a category by ID
+    @Override
+    public void deleteById(int id) {
+        catRepo.deleteById(id);
+    }
 
 }

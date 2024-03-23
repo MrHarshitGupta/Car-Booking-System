@@ -1,38 +1,108 @@
 <!DOCTYPE html>
-<html th="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Availability</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Custom CSS styles -->
+    <style>
+        /* Styles for floating button */
+        .floating-btn {
+            position: fixed;
+            left: 90%;
+            bottom: 10%;
+            z-index: 9999;
+            width: 120px;
+            height: 40px;
+        }
+        
+        /* Styles for floating input field */
+        .floating-input {
+            position: fixed;
+            left: 90%;
+            bottom: 18%;
+            z-index: 9999;
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            background-color: white;
+            padding: 5px 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* CSS styles for setting background image */
+        body {
+            background-image: url('https://www.rentallscript.com/resources/content/images/size/w692/2021/10/Online-Car-Reservation-System.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
-<body> 	
-<section>
-<h2 th:text="${username}">Welcome</h2>
-<div class="container p-5">
-		<div class="row">
-			<div class="col-md-6 offset-md-3">
-				<div class="card">
-					<div class="card-header text-center fs-4">Travel details</div>
-					<div class="card-body">
-						<form th:action="@{/selectcar}" method="post" >
-							<div class="mb-3">
-							  	<label>Enter Pick Up Address</label>
-							  	<input type="text" name="pick_up_point" class="form-control" required>
-							</div>
-							<div class="mb-3">
-							  	<label>Enter Drop location</label>
-							  	<input type="text" name="destination" class="form-control" required>
-							</div>
-							<button class="btn btn-primary col-md-12">Next >></button>
-						</form>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Navbar content -->
+    </nav>
 
+    <!-- Main section -->
+    <section>
+        <!-- Display username -->
+        <h2 th:text="${username}"></h2>
+        
+        <!-- Container for available cars -->
+        <div class="container p-5">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="card">
+                        <div class="card-header text-center fs-4"><strong>Available Cars</strong></div>
+                        
+                        <!-- Form for car selection -->
+                        <form action="">
+                            <div class="col-sm-12">
+                                <!-- Iterate over available cars -->
+                                <div class="card" style="margin-top: 20px" th:each="Car : ${cars}">
+                                    <div class="row no-gutters align-items-center">
+                                        <!-- Car image -->
+                                        <div class="col-sm-3">
+                                            <img class="" height="150px" width="150px" src="https://imgd.aeplcdn.com/370x208/n/cw/ec/45691/dzire-exterior-right-side-view.jpeg?isig=0&q=80"
+                                                th:alt="${Car.Model_Name}">
+                                        </div>
+                                        <!-- Car details -->
+                                        <div class="col-sm-6">
+                                            <div class="d-flex flex-column p-2">
+                                                <div th:text="${Car.Model_Name}"></div>
+                                                <div th:text="${Car.Price_Per_Km}"></div>
+                                                <div>₹ / Day</div>
+                                            </div>
+                                        </div>
+                                        <!-- Radio button for car selection -->
+                                        <div class="col-sm-3 d-flex justify-content-center align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="carSelection" id="carSelection">
+                                                <label class="form-check-label" for="carSelection">Select</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Button -->
+    <a href="" th:href="@{/postlogin/status}" class="btn btn-primary floating-btn">Proceed</a>
+
+    <!-- Floating Input Field -->
+    <input type="number" class="floating-input" placeholder="Enter Days">
 </body>
 </html>

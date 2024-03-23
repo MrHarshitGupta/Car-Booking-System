@@ -1,32 +1,75 @@
 <!DOCTYPE html>
-<html th="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+<html th:lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<!-- Declare document type, specify language, and replace content with base layout -->
 
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title> <!-- Title of the document -->
 </head>
-<body> 	
-<section>
-<h1>Welcome Admin</h1>
-<div class="container p-5">
-		<div class="row">
-			<div class="col-md-6 offset-md-3">
-				<div class="card">
-					<div class="card-header text-center fs-4">Travel details</div>
-					<div class="card-body">
-						<div class="card-body">
-                    <h4 class="card-title">Cars</h4>
-                    <p class="card-text">Manage all cars here.</p>
-                    <a href="#" th:href="@{/admin/addcar}" class="card-link btn btn-primary">Manage</a>
 
+<body>
+    <section>
+        <!-- Main section of the document -->
+
+        <h1>Welcome Admin</h1>
+        <!-- Heading welcoming the admin -->
+
+        <div class="container p-5">
+            <!-- Container for content with padding -->
+
+            <div class="row">
+                <!-- Bootstrap row -->
+
+                <div class="col-md-6 offset-md-3">
+                    <!-- Bootstrap column with medium width and offset -->
+
+                    <div class="card">
+                        <!-- Bootstrap card -->
+
+                        <div class="card-header text-center fs-4">
+                            Management
+                        </div>
+                        <!-- Card header with management title -->
+
+                        <div class="card-body">
+                            <!-- Card body -->
+
+                            <div class="card-body">
+                                <!-- Nested card body -->
+
+                                <h4 class="card-title">Cars</h4>
+                                <!-- Title for car management -->
+
+                                <p class="card-text">Manage all cars here.</p>
+                                <!-- Description of car management -->
+
+                                <a href="#" th:href="@{/admin/addcar}" class="card-link btn btn-primary">Manage</a>
+                                <!-- Button to manage cars -->
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <!-- Card body -->
+
+                            <div class="card-body">
+                                <!-- Nested card body -->
+
+                                <h4 class="card-title">Categories</h4>
+                                <!-- Title for category management -->
+
+                                <p class="card-text">Manage all categories here.</p>
+                                <!-- Description of category management -->
+
+                                <a href="#" th:href="@{/admin/addcategories}" class="card-link btn btn-primary">Manage</a>
+                                <!-- Button to manage categories -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>

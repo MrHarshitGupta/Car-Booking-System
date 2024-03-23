@@ -1,39 +1,52 @@
-
 <!DOCTYPE html>
 <html th="en" xmlns:th="http://www.thymeLeaf.org"
 	th:replace="base::Layout(~{::section})">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <!-- Define the character encoding -->
+    <meta charset="ISO-8859-1">
+    <!-- Title of the page -->
+    <title>Insert title here</title>
 </head>
 <body>
+	<!-- Start of the main section -->
 	<section>
+		<!-- Container with padding -->
 		<div class="container p-3">
+			<!-- Row -->
 			<div class="row">
+				<!-- Centering the content within a column that occupies 6 out of 12 available columns, horizontally centered -->
 				<div class="col-md-6 offset-md-3">
+					<!-- Card for styling -->
 					<div class="card">
+						<!-- Card header with text centered and font size 4 -->
 						<div class="card-header text-center fs-4">Add a new Product</div>
+						<!-- Card body -->
 						<div class="card-body">
-
+							<!-- Form for adding a new product with method POST -->
 							<form action="register" method="post">
+								<!-- Field for entering car name -->
 								<div class="mb-3">
-									<label>Car Name</label> <input type="text"
-										name="fullname" class="form-control" required>
+									<label>Car Name</label> 
+									<input type="text" name="fullname" class="form-control" required>
 								</div>
-								
+								<!-- Field for entering model name -->
 								<div class="mb-3">
-									<label>Price per km</label> <input type="text" name="Price Per Km"
-										class="form-control" required>
+									<label>Enter Email</label> 
+									<input type="text" name="Model_Name" class="form-control" required>
 								</div>
+								<!-- Field for entering price per kilometer -->
 								<div class="mb-3">
-									<label for="category">Select Category</label> <select
-										class="form-control" id="category"
-										name="category">
-										<option th:each="category :${categories}"
-											th:value="${category.id}" th:text="${category.name}">
+									<label>Price per km</label> 
+									<input type="text" name="Price Per Km" class="form-control" required>
+								</div>
+								<!-- Dropdown for selecting category -->
+								<div class="mb-3">
+									<label for="category">Select Category</label> 
+									<select class="form-control" th:field="*{category}" id="category" name="category">
+										<option th:each="category :${categories}" th:value="${category.id}" th:text="${category.name}">
 									</select>
 								</div>
-
+								<!-- Button for submitting the form -->
 								<button class="btn btn-primary col-md-12">Register</button>
 							</form>
 						</div>

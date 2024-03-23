@@ -25,7 +25,55 @@
 							<button class="btn btn-primary col-md-12">Login</button>
 						</form>
 						
-					</div>
+					</div><!DOCTYPE html>
+					<html th="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+					<head>
+						<!-- Define the character encoding -->
+						<meta charset="ISO-8859-1">
+						<!-- Title of the page -->
+						<title>Cab-Booking-Log-in</title>
+					</head>
+					<body>
+					<!-- Start of the main section -->
+					<section>
+						<!-- Container with padding -->
+						<div class="container p-5">
+							<!-- Row -->
+							<div class="row">
+								<!-- Centering the content within a column that occupies 6 out of 12 available columns, horizontally centered -->
+								<div class="col-md-6 offset-md-3">
+									<!-- Card for styling -->
+									<div class="card">
+										<!-- Card header with text centered and font size 4 -->
+										<div class="card-header text-center fs-4"> Admin Login Page</div>
+										<!-- Card body -->
+										<div class="card-body">
+											<!-- Error message displayed in red if there's any -->
+											<h4 class="text-center f-5 p-3" th:text="${error}" style="color:red;"></h4>
+											<!-- Form for admin login with method POST -->
+											<form th:action="@{/adminlogging}" method="post" >
+												<!-- Field for entering admin email -->
+												<div class="mb-3">
+													<label>Enter Admin Email</label>
+													<input type="email" name="email" class="form-control" required>
+												</div>
+												<!-- Field for entering admin password -->
+												<div class="mb-3">
+													<label>Enter Password</label>
+													<input type="password" name="password" class="form-control" required>
+												</div>
+												<!-- Button for submitting the form -->
+												<button class="btn btn-primary col-md-12">Login</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					</body>
+					</html>
+					
 				</div>
 			</div>
 		</div>

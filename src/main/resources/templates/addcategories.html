@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html th:lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<!-- Define document type, language, and replace content with base layout -->
+
+<head>
+    <!-- Head section contains metadata about the document -->
+    <meta charset="UTF-8">
+    <!-- Character encoding -->
+    <title>Add Car</title>
+    <!-- Title of the document -->
+</head>
+
+<body>
+    <!-- Body section contains visible content of the document -->
+    <section>
+        <!-- Main section of the document -->
+
+        <div class="container">
+            <!-- Container for content -->
+
+            <h3>Add a new Car Category</h3>
+            <!-- Heading for adding a new car category -->
+
+            <form th:action="@{/admin/addcategories}" method="post" th:object="${CarCategory}">
+                <!-- Form for adding a new car category -->
+                <!-- Action attribute specifies where to submit the form data -->
+                <!-- Method attribute specifies the HTTP method to use -->
+                <!-- th:object attribute binds form fields to an object -->
+
+                <div class="form-group">
+                    <!-- Form group for category name -->
+                    <label for="name">Name</label>
+                    <!-- Label for category name input -->
+                    <input type="text" class="form-control" required name="name" id="name" placeholder="Enter name">
+                    <!-- Input field for category name -->
+                </div>
+
+                <div class="form-group">
+                    <!-- Form group for category description -->
+                    <label for="descr">Description</label>
+                    <!-- Label for category description input -->
+                    <input type="text" class="form-control" required name="descr" id="descr" placeholder="Enter Description">
+                    <!-- Input field for category description -->
+                </div>
+
+                <br>
+                <!-- Line break -->
+
+                <button class="btn btn-primary col-md-12">Add</button>
+                <!-- Button to add the new category -->
+            </form>
+
+            <br>
+            <!-- Line break -->
+
+            <table class="table">
+                <!-- Table to display existing categories -->
+                <thead class="thead-light">
+                    <!-- Table header -->
+                    <tr>
+                        <!-- Table row -->
+                        <th scope="col">SN</th>
+                        <!-- Table header for serial number -->
+                        <th scope="col">Category Name</th>
+                        <!-- Table header for category name -->
+                        <th scope="col">Category Description</th>
+                        <!-- Table header for category description -->
+                        <th scope="col">Delete</th>
+                        <!-- Table header for delete action -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table body -->
+
+                    <tr th:each="CarCategory, iStat : ${categories}">
+                        <!-- Iterate over each category -->
+                        <th scope="row" th:text="${iStat.index + 1}">1</th>
+                        <!-- Table cell for serial number -->
+                        <td th:text="${CarCategory.name}"></td>
+                        <!-- Table cell for category name -->
+                        <td th:text="${CarCategory.descr}"></td>
+                        <!-- Table cell for category description -->
+                        <td><a href="" th:href="@{/admin/addcategories/delete/{id}(id=${CarCategory.id})}" class="btn btn-danger">Delete</a></td>
+                        <!-- Table cell for delete action -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>
